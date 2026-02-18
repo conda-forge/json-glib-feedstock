@@ -12,7 +12,7 @@ source:
   sha256: 55c5c141a564245b8f8fbe7698663c87a45a7333c2a2c56f06f811ab73b212dd
 
 build:
-  number: 0
+  number: 1
   script:
     - if: win
       then: |
@@ -22,6 +22,7 @@ build:
           --wrap-mode=nofallback ^
           --buildtype=release ^
           -Ddocumentation=disabled ^
+          -Dintrospection=disabled ^
           builddir
         ninja -v -C builddir -j %CPU_COUNT%
         ninja -C builddir install -j %CPU_COUNT%
@@ -36,6 +37,7 @@ build:
             --default-library=shared \
             --wrap-mode=nofallback \
             -Ddocumentation=disabled \
+            -Dintrospection=disabled \
             builddir
         ninja -v -C builddir -j ${CPU_COUNT}
         ninja -C builddir install -j ${CPU_COUNT}
