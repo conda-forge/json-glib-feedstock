@@ -32,13 +32,9 @@ build:
         export CFLAGS="${CFLAGS} -D_DARWIN_C_SOURCE"
     - if: unix
       then: |
-        cat > native_file.ini <<EOF
-        [binaries]
-        glib-mkenums = '${BUILD_PREFIX}/bin/glib-mkenums'
-        glib-genmarshal = '${BUILD_PREFIX}/bin/glib-genmarshal'
-        EOF
+        cp -f ${BUILD_PREFIX}/bin/glib-mkenums ${PREFIX}/bin/glib-mkenums
+        cp -f ${BUILD_PREFIX}/bin/glib-genmarshal ${PREFIX}/bin/glib-genmarshal
         meson setup ${MESON_ARGS} \
-            --native-file=${SRC_DIR}/native_file.ini \
             --prefix=$PREFIX \
             --default-library=shared \
             --wrap-mode=nofallback \
