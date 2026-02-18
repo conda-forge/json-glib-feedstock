@@ -22,6 +22,7 @@ build:
           --wrap-mode=nofallback ^
           --buildtype=release ^
           -Ddocumentation=disabled ^
+          -Dintrospection=disabled ^
           builddir
         ninja -v -C builddir -j %CPU_COUNT%
         ninja -C builddir install -j %CPU_COUNT%
@@ -36,6 +37,7 @@ build:
             --default-library=shared \
             --wrap-mode=nofallback \
             -Ddocumentation=disabled \
+            -Dintrospection=disabled \
             builddir
         ninja -v -C builddir -j ${CPU_COUNT}
         ninja -C builddir install -j ${CPU_COUNT}
