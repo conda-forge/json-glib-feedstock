@@ -50,6 +50,7 @@ requirements:
     - ninja
     - pkg-config
     - gobject-introspection
+    - glib
   host:
     - glib
     - gobject-introspection
